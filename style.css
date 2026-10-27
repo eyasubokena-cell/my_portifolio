@@ -1,0 +1,254 @@
+
+/* 1. Reset default browser spacing */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* 2. Website-wide colors and settings */
+:root {
+    --primary: #6c63ff;
+    --dark: #101323;
+    --text: #e8eaf6;
+    --muted: #a7acc4;
+    --background: #0b1020;
+    --card: #151b30;
+}
+
+/* 3. Smooth scrolling between sections */
+html {
+    scroll-behavior: smooth;
+    scroll-padding-top: 90px;
+}
+
+/* 4. Main page */
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    background: var(--background);
+    color: var(--text);
+    line-height: 1.7;
+}
+
+/* 5. Reusable content container */
+.container {
+    width: min(1100px, 90%);
+    margin-inline: auto;
+}
+
+/* 6. Navigation header */
+.header {
+    background: rgba(11, 16, 32, 0.96);
+    border-bottom: 1px solid #252b42;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+}
+
+.navbar {
+    min-height: 76px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 24px;
+}
+
+.logo {
+    color: var(--text);
+    font-size: 1.4rem;
+    font-weight: bold;
+    text-decoration: none;
+    white-space: nowrap;
+}
+
+.logo span,
+.hero h1 span {
+    color: var(--primary);
+}
+
+.nav-menu {
+    list-style: none;
+    display: flex;
+    align-items: center;
+    gap: 18px;
+}
+
+.nav-menu a {
+    color: var(--muted);
+    text-decoration: none;
+    font-size: 0.9rem;
+    transition: color 0.2s ease;
+}
+
+.nav-menu a:hover,
+.nav-menu a:focus-visible {
+    color: var(--primary);
+}
+
+.menu-toggle {
+    display: none;
+    background: transparent;
+    color: var(--text);
+    border: 0;
+    font-size: 1.8rem;
+    cursor: pointer;
+}
+
+/* 7. Home / hero section */
+.hero {
+    min-height: calc(100vh - 76px);
+    display: grid;
+    grid-template-columns: 1.3fr 0.7fr;
+    align-items: center;
+    gap: 60px;
+    padding-block: 80px;
+}
+
+.intro {
+    color: var(--primary);
+    font-size: 0.85rem;
+    font-weight: bold;
+    letter-spacing: 2px;
+    margin-bottom: 18px;
+}
+
+.hero h1 {
+    font-size: clamp(2.5rem, 5vw, 4.5rem);
+    line-height: 1.15;
+    margin-bottom: 16px;
+}
+
+.hero h2 {
+    font-size: clamp(1.2rem, 2.5vw, 1.8rem);
+    color: var(--muted);
+    margin-bottom: 20px;
+}
+
+.hero-description {
+    color: var(--muted);
+    max-width: 580px;
+    margin-bottom: 30px;
+}
+
+/* 8. Buttons */
+.hero-buttons {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 14px;
+}
+
+.btn {
+    display: inline-block;
+    padding: 12px 22px;
+    border: 2px solid var(--primary);
+    border-radius: 8px;
+    text-decoration: none;
+    font-weight: bold;
+    transition: transform 0.2s ease,
+                background 0.2s ease;
+}
+
+.btn:hover {
+    transform: translateY(-3px);
+}
+
+.btn-primary {
+    background: var(--primary);
+    color: white;
+}
+
+.btn-outline {
+    color: var(--text);
+}
+
+.btn-outline:hover {
+    background: var(--primary);
+}
+
+/* 9. Profile image placeholder */
+.hero-image {
+    display: flex;
+    justify-content: center;
+}
+
+.profile-placeholder {
+    width: min(300px, 100%);
+    aspect-ratio: 1;
+    display: grid;
+    place-items: center;
+    border: 3px solid var(--primary);
+    border-radius: 50%;
+    background: linear-gradient(135deg, #202b4b, #17132e);
+    color: var(--muted);
+    box-shadow: 0 0 45px rgba(108, 99, 255, 0.2);
+    object-fit: cover;
+}
+
+/* 10. Temporary section styling */
+.content-section {
+    padding-block: 90px;
+    border-top: 1px solid #252b42;
+}
+
+.content-section h2 {
+    color: var(--primary);
+    font-size: 2rem;
+    margin-bottom: 12px;
+}
+
+.content-section p {
+    color: var(--muted);
+}
+
+.footer {
+    padding: 25px 5%;
+    text-align: center;
+    color: var(--muted);
+    border-top: 1px solid #252b42;
+}
+
+/* 11. Responsive layout for phones and tablets */
+@media (max-width: 900px) {
+    .navbar {
+        flex-wrap: wrap;
+        padding-block: 16px;
+    }
+
+    .menu-toggle {
+        display: block;
+    }
+
+    .nav-menu {
+        display: none;
+        flex-direction: column;
+        align-items: flex-start;
+        width: 100%;
+        padding-block: 12px;
+    }
+
+    .nav-menu.active {
+        display: flex;
+    }
+
+    .hero {
+        grid-template-columns: 1fr;
+        text-align: center;
+        gap: 40px;
+    }
+
+    .hero-description {
+        margin-inline: auto;
+    }
+
+    .hero-buttons {
+        justify-content: center;
+    }
+
+    .hero-image {
+        grid-row: 1;
+    }
+
+    .profile-placeholder {
+        width: 220px;
+    }
+}
